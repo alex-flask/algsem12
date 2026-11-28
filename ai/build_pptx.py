@@ -102,7 +102,6 @@ def add_header(s, kicker, title, page):
 def build_slides():
     slides = []
 
-    # 1 — cover
     s = Slide()
     s.text(0.9, 0.78, 11.3, 0.35, "СЕМИНАР · ТЕСТИРОВАНИЕ ДЕРЕВЬЕВ", size=12, color=CYAN, bold=True)
     s.text(0.85, 1.55, 11.8, 1.25, "2-3 дерево", size=50, color=INK, bold=True)
@@ -116,7 +115,6 @@ def build_slides():
     s.text(11.5, 7.13, 0.65, 0.18, "01 / 07", size=8.5, color=MUTED, align="r")
     slides.append(s)
 
-    # 2 — structure
     s = Slide()
     add_header(s, "Структура", "Узел хранит 1–2 ключа", 2)
     bullets = [
@@ -127,7 +125,6 @@ def build_slides():
     ]
     for i, line in enumerate(bullets):
         s.bullet(0.9, 1.95 + i * 0.72, 5.5, line, size=16.5)
-    # Tree illustration: root with two separators and three leaves.
     s.rect(8.3, 2.05, 2.35, 0.68, PANEL2, CYAN)
     s.text(8.42, 2.18, 2.1, 0.35, "20  |  40", size=18, color=CYAN, bold=True, align="ctr", valign="ctr")
     s.rect(9.45, 2.74, 0.025, 0.45, LINE, None, False)
@@ -142,7 +139,6 @@ def build_slides():
     s.text(1.08, 5.72, 11.1, 0.56, "Уточнение: формула 2t−1 при t=2 даёт 3 ключа (2-3-4 дерево). Здесь реализовано классическое 2-3 дерево: максимум 2 ключа.", size=13, color="FFE1B6")
     slides.append(s)
 
-    # 3 — workloads
     s = Slide()
     add_header(s, "Наборы и методика", "Три набора, по 10 000 значений", 3)
     cards = [
@@ -162,7 +158,6 @@ def build_slides():
     s.text(0.92, 6.24, 11.3, 0.42, "Время указано как медиана семи запусков; тайминги зависят от компьютера.", size=12, color=MUTED)
     slides.append(s)
 
-    # 4 — result table
     s = Slide()
     add_header(s, "Измеренные результаты · команда 1", "Высота осталась небольшой", 4)
     headers = ["Набор", "Уникальные", "Высота", "Расщепления", "Слияния", "Перераспр.", "Вставка, мс", "Поиск, мс", "Удаление, мс"]
@@ -192,7 +187,6 @@ def build_slides():
     s.text(1.04, 5.62, 11.2, 0.52, "Узлов после вставки: Random 7 091  ·  Sorted 9 995  ·  Hotspot 3 620\nСамопроверка пройдена: 30 000 случайных операций, сравнение с std::set.", size=12.5, color=MUTED)
     slides.append(s)
 
-    # 5 — observations
     s = Slide()
     add_header(s, "Наблюдения", "Порядок входа меняет работу узлов", 5)
     obs = [
@@ -208,7 +202,6 @@ def build_slides():
     s.text(0.9, 6.05, 11.4, 0.55, "Заимствование у соседа даёт перераспределение; если сосед не может отдать ключ, происходит слияние.", size=13, color=MUTED)
     slides.append(s)
 
-    # 6 — paired comparison
     s = Slide()
     add_header(s, "Пара защиты · команда 4", "2-3 дерево и B+ дерево", 6)
     rows = [
@@ -233,7 +226,6 @@ def build_slides():
     s.text(1.04, 6.36, 11.27, 0.35, "Связанные листья B+ дерева упрощают последовательный проход по диапазону после поиска первого ключа.", size=11.2, color="FFE1B6", valign="ctr")
     slides.append(s)
 
-    # 7 — conclusion
     s = Slide()
     add_header(s, "Итог", "Выбираем по типу запросов", 7)
     s.rect(0.85, 2.0, 5.55, 2.35, PANEL, LINE)

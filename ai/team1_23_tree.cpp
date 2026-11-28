@@ -10,8 +10,8 @@
 #include <string>
 #include <vector>
 
-// Команда 1: классическое 2-3 дерево.
-// В каждом узле от 1 до 2 ключей и от 2 до 3 детей (кроме листьев).
+
+
 struct Node {
     bool leaf;
     int n;
@@ -120,8 +120,8 @@ void removeParentEntry(Node* parent, int keyIndex, int childIndexToRemove) {
     --parent->n;
 }
 
-// Восстанавливает узел с 0 ключей после удаления. Сосед может отдать ключ,
-// иначе сосед и разделитель родителя сливаются в узел с двумя ключами.
+
+
 void fixUnderflow(Node* parent, int i) {
     Node* child = parent->children[i];
 
@@ -269,7 +269,7 @@ CheckResult checkNode(const Node* node, long long low, long long high, int depth
     }
     return result;
 }
-}  // namespace
+}
 
 Node* find(Node* root, int key) {
     Node* current = root;
@@ -332,8 +332,8 @@ void printStats(const Node* root) {
               << " redistributes=" << redistributes << '\n';
 }
 
-// Совместимый с формулировкой задания вариант без параметров.
-// Использует корень, полученный при последней операции insert/remove.
+
+
 void printStats() { printStats(statsRoot); }
 
 namespace {
@@ -450,7 +450,7 @@ void selfTest() {
     destroy(root);
     std::cout << "Self-test passed: 30000 random insert/remove operations; invariants and std::set agree.\n";
 }
-}  // namespace
+}
 
 int main(int argc, char** argv) {
     if (argc == 2 && std::string(argv[1]) == "--self-test") {
